@@ -1,0 +1,348 @@
+<style>
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: arial;
+}
+
+#pause {
+    float: left;
+}
+
+#done {
+    float: right;
+}
+
+#dock {
+  text-align: center;
+  font-family: arial;
+  
+}
+    @font-face{
+        font-family: qdi;
+       
+        src:url("{{=URL('static','css/Fontin-Bold.otf')}}")
+    }     
+            @font-face{
+        font-family: qdop;
+      
+        src:url("{{=URL('static','css/Fontin-Regular.otf')}}")
+    }
+
+.pagination {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  margin-top: 10px;
+}
+.pagination li {
+  display: inline;
+  text-align: center;
+}
+.pagination a {
+  float: left;
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px 12px;
+  color: #fff;
+  margin-left: -1px;
+  border: 1px solid transparent;
+  line-height: 1.5;
+}
+.pagination a.active {
+  cursor: default;
+}
+.pagination a:active {
+  outline: none;
+}
+
+.modal-4 a {
+  margin: 0 5px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  background-color: rgb(255, 71, 26);
+}
+.modal-4 a.prev {
+  -moz-border-radius: 50px 0 0 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px 0 0 50px;
+  width: 100px;
+}
+.modal-4 a.next {
+  -moz-border-radius: 0 50px 50px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 50px 50px 0;
+  width: 100px;
+}
+.modal-4 a:hover {
+  background-color: rgb(204, 0, 102);
+}
+.modal-4 a.active, .modal-4 a:active {
+  background-color: rgb(204, 0, 102);
+}
+
+#pic{
+    background-image: url("{{=URL('static','images/old_map_@2X.jpg')}}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 2%;
+    height: 70%;
+} 
+#dq{
+    height: 20%;
+    text-align: center;
+    width: 70%;
+    color: white;
+    background-color: rgb(13, 13, 13);
+    opacity: 0.6;
+    padding-top: 2%;
+    font-family: qdi;
+    font-size: 35px;
+    border-radius: 6%;
+    margin-left: 14%;
+
+}
+     #opt{
+        height: 40%;
+        background-color: rgb(13, 13, 13);
+        opacity: 0.5;
+          border-radius: 6%;
+         margin-top: 3%;
+        margin-left: 35%;
+         border-radius: 6%;
+         font-family: qdop;
+         padding-left: 10%;
+         padding-top: 1%;
+         font-size: 120%;
+         color: white;
+        text-align: left;
+        width: 30%;
+    }
+    
+    #paus {
+        height: 15%;
+        width: 30%;
+        background-color: rgb(13, 13, 13);
+        opacity: 0.5;
+          border-radius: 6%;
+         margin-top: 3%;
+        margin-left: 35%;
+         border-radius: 6%;
+         font-family: qdop;
+         
+         padding-top: 0.3%;
+         font-size: 120%;
+         color: white;
+        text-align: center;
+    }
+    
+    #f{
+        
+        height: 25%;
+        background-color:rgb(13, 13, 13);
+        display:inline-block;
+        border-radius: 6%;
+      color: white;
+        opacity: 0.5;
+       margin-top: 3%;
+        padding-left: 14%;
+        width: 32%;
+        margin-left: 14%;
+    }
+    form{
+        color: white;
+    }
+   
+</style>
+
+
+
+
+
+
+
+
+
+{{if toshow == 1:}}
+<div id="pic">
+<div id="dq">
+    {{=anr.Q1}}
+</div>
+    <div id="opt">
+        {{=form1.custom.begin}}
+{{=form1.custom.widget.Ans1[0]}}) {{=ar.A1}}<br>
+{{=form1.custom.widget.Ans1[1]}}) {{=br.B1}}<br>
+{{=form1.custom.widget.Ans1[2]}}) {{=cr.C1}}  <br>
+{{=form1.custom.widget.Ans1[3]}}) {{=dr.D1}} <br> 
+        <br>
+{{=form1.custom.submit}}
+{{=form1.custom.end}}
+    </div>
+ <!--   <div id="f">    {{=form1}} </div>   -->
+            {{if resumeid != "None":}}
+        {{if line.marked1 is not None:}}
+    <div id="paus">
+        <p>Before pausing quiz you marked{{=line.marked1}}</p>{{pass}}{{pass}}
+    </div>
+</div>
+<div id="dock">
+<ul class="pagination modal-4">
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,5,resumeid])}}" class="prev"><i class="fa fa-chevron-left"></i>Previous</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,1,resumeid])}}" class="active">1</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,2,resumeid])}}">2</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,3,resumeid])}}">3</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,4,resumeid])}}">4</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,5,resumeid])}}">5</a></li>
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,2,resumeid])}}" class="next"> Next <i class="fa fa-chevron-right"></i></a></li>
+</ul><br> 
+</div>
+{{pass}}
+
+{{if toshow == 2:}}
+    <div id="pic">
+    <div id="dq">
+    {{=anr.Q2}}
+        </div>
+        <div id="opt">
+        {{=form2.custom.begin}}
+{{=form2.custom.widget.Ans2[0]}}) {{=ar.A2}}<br>
+{{=form2.custom.widget.Ans2[1]}}) {{=br.B2}}<br>
+{{=form2.custom.widget.Ans2[2]}}) {{=cr.C2}}  <br>
+{{=form2.custom.widget.Ans2[3]}}) {{=dr.D2}} <br> 
+        <br>
+{{=form2.custom.submit}}
+{{=form2.custom.end}}     </div>
+
+        {{if resumeid != "None":}}
+        {{if line.marked2 is not None:}}
+    <div id="paus">
+        <p>Before pausing quiz you marked{{=line.marked2}}</p>{{pass}}{{pass}}
+    </div>
+</div>
+
+<div id="dock">
+<ul class="pagination modal-4">
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,1,resumeid])}}" class="prev"><i class="fa fa-chevron-left"></i>Previous</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,1,resumeid])}}">1</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,2,resumeid])}}" class="active">2</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,3,resumeid])}}">3</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,4,resumeid])}}">4</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,5,resumeid])}}">5</a></li>
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,3,resumeid])}}" class="next"> Next <i class="fa fa-chevron-right"></i></a></li>
+</ul><br>
+</div>
+{{pass}}
+
+{{if toshow == 3:}}
+        <div id="pic">
+    <div id="dq">
+    {{=anr.Q3}}
+         </div>
+            <div id="opt">
+        {{=form2.custom.begin}}
+{{=form3.custom.widget.Ans3[0]}}) {{=ar.A3}}<br>
+{{=form3.custom.widget.Ans3[1]}}) {{=br.B3}}<br>
+{{=form3.custom.widget.Ans3[2]}}) {{=cr.C3}}  <br>
+{{=form3.custom.widget.Ans3[3]}}) {{=dr.D3}} <br> 
+        <br>
+{{=form3.custom.submit}}
+{{=form3.custom.end}}     </div>
+
+
+        {{if resumeid != "None":}}
+        {{if line.marked3 is not None:}}
+    <div id="paus">
+        <p>Before pausing quiz you marked{{=line.marked3}}</p>{{pass}}{{pass}}
+    </div>
+ </div>
+
+<div id="dock">
+<ul class="pagination modal-4">
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,2,resumeid])}}" class="prev"><i class="fa fa-chevron-left"></i>Previous</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,1,resumeid])}}">1</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,2,resumeid])}}">2</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,3,resumeid])}}" class="active">3</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,4,resumeid])}}">4</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,5,resumeid])}}">5</a></li>
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,4,resumeid])}}" class="next"> Next <i class="fa fa-chevron-right"></i></a></li>
+</ul><br> 
+</div>
+{{pass}}
+
+{{if toshow == 4:}}
+        <div id="pic">
+    <div id="dq">
+    {{=anr.Q4}}
+            </div>
+         <div id="opt">
+         {{=form4.custom.begin}}
+{{=form4.custom.widget.Ans4[0]}}) {{=ar.A4}}<br>
+{{=form4.custom.widget.Ans4[1]}}) {{=br.B4}}<br>
+{{=form4.custom.widget.Ans4[2]}}) {{=cr.C4}}  <br>
+{{=form4.custom.widget.Ans4[3]}}) {{=dr.D4}} <br> 
+        <br>
+{{=form2.custom.submit}}
+{{=form2.custom.end}}     </div>
+
+        {{if resumeid != "None":}}
+        {{if line.marked4 is not None:}}
+    <div id="paus">
+            <p>Before pausing quiz you marked{{=line.marked4}}</p>{{pass}}{{pass}}
+    </div>  
+ </div>
+<div id="dock">
+<ul class="pagination modal-4">
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,3,resumeid])}}" class="prev"><i class="fa fa-chevron-left"></i>Previous</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,1,resumeid])}}">1</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,2,resumeid])}}">2</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,3,resumeid])}}">3</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,4,resumeid])}}" class="active">4</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,5,resumeid])}}">5</a></li>
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,5,resumeid])}}" class="next"> Next <i class="fa fa-chevron-right"></i></a></li>
+</ul><br> 
+</div>
+{{pass}}
+
+{{if toshow == 5:}}
+        <div id="pic">
+    <div id="dq">
+    {{=anr.Q5}}
+         </div>
+            <div id="opt">
+        {{=form5.custom.begin}}
+{{=form5.custom.widget.Ans5[0]}}) {{=ar.A5}}<br>
+{{=form5.custom.widget.Ans5[1]}}) {{=br.B5}}<br>
+{{=form5.custom.widget.Ans5[2]}}) {{=cr.C5}}  <br>
+{{=form5.custom.widget.Ans5[3]}}) {{=dr.D5}} <br> 
+        <br>
+{{=form5.custom.submit}}
+{{=form5.custom.end}}     </div>
+
+        {{if resumeid != "None":}}
+        {{if line.marked5 is not None:}}
+    <div id="paus">
+        <p>Before pausing quiz you marked{{=line.marked5}}</p>{{pass}}{{pass}}
+    </div>
+ </div>
+<div id="dock">
+<ul class="pagination modal-4">
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,4,resumeid])}}" class="prev"><i class="fa fa-chevron-left"></i>Previous</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,1,resumeid])}}">1</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,2,resumeid])}}">2</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,3,resumeid])}}">3</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,4,resumeid])}}">4</a></li>
+  <li> <a href="{{=URL('question_display', args = [lvl,st,subcat,cat,5,resumeid])}}" class="active">5</a></li>
+  <li><a href="{{=URL('question_display', args = [lvl,st,subcat,cat,1,resumeid])}}" class="next"> Next <i class="fa fa-chevron-right"></i></a></li>
+</ul><br> 
+</div>
+{{pass}}
+
+<a id="pause" href="{{=URL('pause', args = [lvl,st,subcat,cat])}}"> <button type="button" class="img-circle" >PAUSE IT</button> </a>
+<a id="done" href="{{=URL('marksheet', args = [lvl,st,subcat,cat])}}"> <button type="button" >QUIZ DONE</button> </a>

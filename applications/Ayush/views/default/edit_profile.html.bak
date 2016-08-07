@@ -1,0 +1,29 @@
+<style>
+    #nav{
+        width: 90%;
+        height: 8%;
+        background-color: #f2f2f2;
+        margin-bottom: 3%;
+        text-align: right;
+        padding-top: 2%;
+        padding-right: 10%;
+    }
+#for{
+    width: 25%;
+    padding-top: 5%;
+    padding-left: 8%;
+    height: 100%;
+    border-radius: 5%;
+    margin-left: 34%;
+  
+    background-color: orange;
+}
+</style>
+<div id="nav">
+    <a href="{{=URL('index')}}"><h3>
+        HOME
+        </h3></a>
+</div>
+<div id="for">
+{{=form}}
+</div>

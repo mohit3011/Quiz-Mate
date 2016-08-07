@@ -1,0 +1,537 @@
+<style>
+    .moh{
+        width: 30%;
+        height: 15%;
+      text-align: center;
+        margin-left: 3%;
+        font-size: 150%;
+        color: white;
+        border-radius: 5%;
+        background-color: #fed136;
+        display: inline-block;
+        vertical-align: top;
+    }
+    #search{
+        color: white;
+        width: 100%;
+        height: 20%;
+        text-align: center;
+    }
+
+    .card{
+  text-align:center;
+
+  width: 140%;
+  height: 30%;
+  display: inline-block;
+    }
+
+
+
+.page-scroll{
+    color: yellow;
+}
+
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.face.front{
+  background:rgb(166, 166, 166);
+    padding-top: 8%;
+}
+.face.back {
+  display: block;
+  box-sizing: border-box;
+  padding: 20px;
+  color: white;
+  text-align: left;
+  background-color: #333;
+}
+
+.card{
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+.card:hover .front{
+  transform: rotateY(-180deg);
+}
+
+.card:hover .back {
+ transform: rotateY(0deg);
+}
+.face {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.face.front {
+  transform: rotateY(0deg);
+}
+
+.face.back {
+  transform: rotateY(180deg);
+}
+
+.portfolio-grid {
+
+	list-style: none;
+	padding: 0;
+	text-align: center;
+    display: inline-block;
+    width: 19.7%;
+}
+
+.portfolio-grid li {
+	display: inline-block;
+	margin: 5px 5px 5px 5px;
+	vertical-align: top;
+    width:160px;
+    border-radius: 2px;
+}
+
+}
+.portfolio-grid li > a,
+.portfolio-grid li > a img {
+    width: 100%;
+	border: none;
+	outline: none;
+	display: inline-block;
+	position: relative;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.portfolio-grid li > a img:hover {
+    border-radius: 50%;
+    z-index: 9999;
+}
+}
+
+/******************************************
+ Animate.CSS By Dan Eden
+******************************************/
+
+.animated{-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;}
+@-webkit-keyframes flipInX {
+    0% {
+        -webkit-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    40% {
+        -webkit-transform: perspective(400px) rotateX(-10deg);
+    }
+
+    70% {
+        -webkit-transform: perspective(400px) rotateX(10deg);
+    }
+
+    100% {
+        -webkit-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+@-moz-keyframes flipInX {
+    0% {
+        -moz-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    40% {
+        -moz-transform: perspective(400px) rotateX(-10deg);
+    }
+
+    70% {
+        -moz-transform: perspective(400px) rotateX(10deg);
+    }
+
+    100% {
+        -moz-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+@-o-keyframes flipInX {
+    0% {
+        -o-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    40% {
+        -o-transform: perspective(400px) rotateX(-10deg);
+    }
+
+    70% {
+        -o-transform: perspective(400px) rotateX(10deg);
+    }
+
+    100% {
+        -o-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+@keyframes flipInX {
+    0% {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    40% {
+        transform: perspective(400px) rotateX(-10deg);
+    }
+
+    70% {
+        transform: perspective(400px) rotateX(10deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.flipInX {
+	-webkit-backface-visibility: visible !important;
+	-webkit-animation-name: flipInX;
+	-moz-backface-visibility: visible !important;
+	-moz-animation-name: flipInX;
+	-o-backface-visibility: visible !important;
+	-o-animation-name: flipInX;
+	backface-visibility: visible !important;
+	animation-name: flipInX;
+}
+</style>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Quiz Mate</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{=URL('static', 'css/bootstrap.min1.css')}}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{=URL('static', 'css/agency.css')}}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{=URL('static', 'css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{=URL('https://fonts.googleapis.com/css?family=Montserrat:400,700')}}" rel="stylesheet" type="text/css">
+    <link href="{{('https://fonts.googleapis.com/css?family=Kaushan+Script')}}" rel='stylesheet' type='text/css'>
+    <link href="{{('https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic')}}" rel='stylesheet' type='text/css'>
+    <link href="{{('https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700')}}" rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll"  >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Quiz Mate</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Top Scores</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Select Category</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Profile</a>
+                    </li>
+
+                    <li>
+                       {{=A('Logout', _href=URL('default', 'user', args='logout'))}}
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome</div>
+                <div class="intro-heading">Ready For The Brain Workout</div>
+                <a href="#services" class="page-scroll btn btn-xl">Let's Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <a href="{{=URL('topscorer')}}">
+                <div class="moh">
+                    <h2 class="section-heading">Top Scores</h2>
+                    <h3 class="section-subheading text-muted">The place for the quiz grandmasters</h3>
+                </div></a>
+                <a href="{{=URL('ratings')}}">
+                <div class="moh">
+                    <h2 class="section-heading">View Quizzes by rating</h2>
+                    <h3 class="section-subheading text-muted">View the quizzes by rating</h3>
+                </div>
+                </a>
+                 <a href="{{=URL('suggestquestion')}}"><div class="moh">
+                    <h2 class="section-heading">Upload Question</h2>
+                    <h3 class="section-subheading text-muted">Upload & suggest questions</h3>
+                     </div></a>
+
+
+            </div>
+            </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading"<h2>Select Category </h2>
+                </div>
+            </div>
+        <div class="row">
+            {{for ro in rows:}}
+	<ul class="portfolio-grid">
+					<li>
+						<a href="{{=URL('select_subcategory',args=ro.Category)}}">
+                            {{if ro.Category=="Sports":}}
+                           <div class="card">
+                            <div class="face front">
+                                <img class="img-responsive" src=" /quiz/static/images/new.jpeg"/>
+                                        </div>
+                                                    <div class="face back">
+                                          <p> Are you a person who loves sports, a person who seeks thee information about each and every aspect of the game. Then this the quiz for you, This category contains quizzes related to sports form cricket to football to chess</p>
+    </div>
+  </div>
+                           {{pass}}
+                            {{if ro.Category=="Politics":}}
+                            <div class="card">
+    <div class="face front">
+        <img class="img-responsive" src=" /quiz/static/images/new.jpeg"/>
+    </div>
+    <div class="face back">
+      <p>Always interested in what's happenning around you, then may be politics would be a category then you must be interested in. try this category you'll love it. </p>
+    </div>
+  </div>
+                           {{pass}}
+                            {{if ro.Category=="Science":}}
+                             <div class="card">
+    <div class="face front">
+        <img class="img-responsive" src=" /quiz/static/images/new.jpeg"/>
+    </div>
+    <div class="face back">
+      <p>Always question the reasoning behind everything... then maybe you have the scientific aptitude, try these quizzes based on science.</p>
+    </div>
+  </div>
+                           {{pass}}
+                            {{if ro.Category=="Technology":}}
+                            <div class="card">
+    <div class="face front">
+        <img class="img-responsive" src=" /quiz/static/images/new.jpeg"/>
+    </div>
+    <div class="face back">
+      <p>A tech geek who remains ahead of the times , then this quiz would surely test your knowledge and understanding about the world of technology. </p>
+    </div>
+  </div>
+                           {{pass}}
+                            {{if ro.Category=="Entertainment":}}
+                             <div class="card">
+    <div class="face front">
+        <img class="img-responsive" src=" /quiz/static/images/new.jpeg"/>
+    </div>
+    <div class="face back">
+      <p>Are you an entertainer, knows everything about your favourite actor, film or tv series. Then take the quiz and proove that.</p>
+    </div>
+  </div>
+                           {{pass}}
+						</a>
+                        <h4>
+                            {{=ro.Category}}
+                        </h4>
+					</li>
+            </ul>
+        {{pass}}
+    </div>
+   </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Profile</h2>
+                    <h3 class="section-subheading text-muted">Show the World who you are</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                 <img class="img-circle img-responsive" src="{{=URL('default', 'download', args=im.Image)}}" />
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">Profile Pic & Description</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">{{=im.Description}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src=" /quiz/static/images/1.jpg" />
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">Gender & Profession</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted"><h5>Gender:</h5> {{=im.Gender}}<br><h5>Profession:</h5> {{=im.Profession}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="/quiz/static/images/2.jpg" />
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">Interests</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">{{=im.Interest}}</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="timeline-inverted"><a href="{{=URL('edit_profile',args=auth.user_id)}}">
+                            <div class="timeline-image">
+                                <h4>Edit
+                                    <br>Your
+                                    <br>Profile</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Clients Aside -->
+    <aside class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div id="search">
+        {{include 'web2py_ajax.html'}}
+       <h1>Search category</h1>
+                                                
+{{=form}}<br />{{=target_div}}
+            </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Created By Mohit Chandra & Ayush Jain <br>   Quiz Mate&copy; <br> 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="link"><a href="https://www.facebook.com/mohit.chandra.7568596"></a>
+                        </li>
+                        <li><a href="#"></a>
+                        </li>
+                        <li><a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/agency.js"></script>
+
+</body>

@@ -1,0 +1,389 @@
+<style>
+#yrf{
+    width:40%;
+    height: 50%;
+   display: inline-block;
+   
+    background-color: #f0f0f0;
+}
+ .round-button {
+	width:25%;
+}
+.round-button-circle {
+	width: 55%;
+	height:0;
+	padding-bottom: 55%;
+    border-radius: 50%;
+    margin-left: 88%;
+	border:10px solid rgb(230, 92, 0) ;
+    overflow:hidden;
+    
+    background:rgb(255, 204, 102) ; 
+    box-shadow: 0 0 3px gray;
+}
+.round-button-circle:hover {
+	background-color:rgb(230, 92, 0);
+}
+.round-button a {
+    display:block;
+	float:left;
+	width:100%;
+	padding-top:50%;
+    padding-bottom:50%;
+	line-height:1em;
+	margin-top:-0.5em;
+    
+	text-align:center;
+	color:#e2eaf3;
+    font-family:Verdana;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
+}
+    
+    #feedfo{
+        width: 35%;
+        height: 25%;
+        background-color:  rgb(255, 204, 102);
+        padding-left: 27%;
+        border-radius: 5%;
+        margin-bottom: 8%;
+    }
+    
+    #can{
+        width: 40%;
+        height: 50%;
+        display: inline-block;
+        background-color: #f0f0f0;
+        margin-top: 1%;
+        vertical-align: top;
+    }
+   
+    #feed{
+        width: 41%;
+        height: 37%;
+        position: right;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 1.4%;
+        padding-top: 7%;
+        margin-top: 1%;
+        padding-left: 16%;
+        background-color: #f0f0f0;
+    }
+      @font-face{
+        font-family: qdi;
+       
+        src:url("{{=URL('static','css/Fontin-Bold.otf')}}")
+    }     
+            @font-face{
+        font-family: qdop;
+      
+        src:url("{{=URL('static','css/Fontin-Regular.otf')}}")
+    }
+
+    #sco{
+        width: 57%;
+        height: 50%;
+        display: inline-block;
+        position: right;
+        margin-left: 1.5%;
+      
+        background-color: #f3f3f3;
+        vertical-align: top;
+        
+    }
+    .circle{
+        border-radius: 100%;
+        width: 12%;
+        height: 20%;
+        background-color: rgb(255, 92, 51);
+        display: inline-block;
+        text-align: center;
+        padding-top: 3%;
+        font-size: 210%;
+        margin-left: 6%;
+    }
+    
+    .circle1{
+        border-radius: 100%;
+        width: 12%;
+        height: 20%;
+        background-color: rgb(92, 214, 92);
+        display: inline-block;
+        text-align: center;
+        padding-top: 3%;
+        font-size: 210%;
+        margin-left: 6%;
+    }
+    
+    #total{
+        width: 50%;
+        height: 20%;
+        margin-top: 8%;
+        background-color: rgb(255, 153, 0);
+        opacity: 0.5;
+        margin-left: 25%;
+        text-align: center;
+        font-family: qdop;
+        padding-top: 3%;
+        font-size: 240%;
+        border-radius: 6%;
+    }
+    #hea{
+        width: 50%;
+        height: 18%;
+        margin-left: 23%;
+        position: center;
+        border-radius: 8%;
+       padding-top: 2%;
+        background-color:rgb(230, 92, 0);
+    }
+    h1{
+        text-align: center;
+        font-family: qdi;
+    }
+    #res{
+        width: 50%;
+        height: 10%;
+        background-color:rgb(255, 204, 102) ;
+        margin-top: 3%;
+        margin-left: 23%;
+        text-align: center;
+        border-radius: 6%;
+        font-family: qdop;
+        font-size: 180%;
+    }
+    
+    
+  
+
+    
+</style>
+
+
+<title>Quiz Mate- Marksheet</title>
+
+<div id="yrf">
+    <div id="hea">
+<h1>
+    Your Responses
+</h1>
+    </div>
+    {{if line.marked1=="|A|":}}
+     <div id="res">A</div>
+   
+     {{elif line.marked1=="|B|":}}
+     <div id="res">B</div>
+
+     {{elif line.marked1=="|C|":}}
+     <div id="res">C</div>
+
+     {{elif line.marked1=="|D|":}}
+     <div id="res">D</div>
+
+    {{else:}}
+         <div id="res">None</div>
+    {{pass}}
+    
+    
+    {{if line.marked2=="|A|":}}
+     <div id="res">A</div>
+   
+     {{elif line.marked2=="|B|":}}
+     <div id="res">B</div>
+   
+     {{elif line.marked2=="|C|":}}
+     <div id="res">C</div>
+    
+     {{elif line.marked2=="|D|":}}
+     <div id="res">D</div>
+   
+    {{else:}}
+         <div id="res">None</div>
+    {{pass}}
+    
+    {{if line.marked3=="|A|":}}
+     <div id="res">A</div>
+   
+     {{elif line.marked3=="|B|":}}
+     <div id="res">B</div>
+    
+     {{elif line.marked3=="|C|":}}
+     <div id="res">C</div>
+    
+     {{elif line.marked3=="|D|":}}
+     <div id="res">D</div>
+    
+    {{else:}}
+         <div id="res">None</div>
+    {{pass}}
+    
+    {{if line.marked4=="|A|":}}
+     <div id="res">A</div>
+ 
+     {{elif line.marked4=="|B|":}}
+     <div id="res">B</div>
+   
+     {{elif line.marked4=="|C|":}}
+     <div id="res">C</div>
+    
+     {{elif line.marked4=="|D|":}}
+     <div id="res">D</div>
+    
+    {{else:}}
+         <div id="res">None</div>
+    {{pass}}
+    
+    {{if line.marked5=="|A|":}}
+     <div id="res">A</div>
+   
+     {{elif line.marked5=="|B|":}}
+     <div id="res">B</div>
+    
+     {{elif line.marked5=="|C|":}}
+     <div id="res">C</div>
+    
+     {{elif line.marked5=="|D|":}}
+     <div id="res">D</div>
+   
+    {{else:}}
+         <div id="res">None</div>
+    {{pass}}
+</div>
+
+<div id="sco">
+    <figure class="effect-oscar  wowload fadeInUp">
+      {{if score1==-2:}}
+    <div class="circle">Q1<br> {{=score1}}</div>
+      {{pass}}
+      {{if score1==10:}}
+        <div class="circle1">Q1<br>  {{=score1}}</div>
+        {{pass}}
+        {{if score1==0:}}
+        <div class="circle2"> Q1<br> {{=score1}}</div>
+        {{pass}}
+    
+    {{if score2==-2:}}
+        <div class="circle">Q2<br>  {{=score2}}</div>
+      {{pass}}
+      {{if score2==10:}}
+        <div class="circle1">Q2<br>  {{=score2}}</div>
+        {{pass}}
+        {{if score2==0:}}
+        <div class="circle2">Q2<br>  {{=score2}}</div>
+        {{pass}}
+   {{if score3==-2:}}
+        <div class="circle">Q3<br>  {{=score3}}</div>
+      {{pass}}
+      {{if score3==10:}}
+        <div class="circle1">Q3<br>  {{=score3}}</div>
+        {{pass}}
+        {{if score3==0:}}
+        <div class="circle2">Q3<br>  {{=score3}}</div>
+        {{pass}}
+    
+    {{if score4==-2:}}
+        <div class="circle">Q4<br>  {{=score4}}</div>
+      {{pass}}
+      {{if score4==10:}}
+        <div class="circle1">Q4<br>  {{=score4}}</div>
+        {{pass}}
+        {{if score4==0:}}
+        <div class="circle2">Q4<br>  {{=score4}}</div>
+        {{pass}}
+    
+    {{if score5==-2:}}
+        <div class="circle">Q5<br>  {{=score5}}</div>
+      {{pass}}
+      {{if score5==10:}}
+        <div class="circle1">Q5<br>  {{=score5}}</div>
+        {{pass}}
+        {{if score5==0:}}
+        <div class="circle2">Q5<br>  {{=score5}}</div>
+        {{pass}}
+    <div id="total">
+Total Score is {{=score}}
+    </div>
+</p>
+    </figure>
+</div>
+
+<div id="can">
+    <div id="hea">
+<h1>
+    Correct Answers
+</h1>
+    </div>
+    {{if ans.cans1=="|A|":}}
+     <div id="res">A</div>
+   
+     {{elif ans.cans1=="|B|":}}
+     <div id="res">B</div>
+
+     {{elif ans.cans1=="|C|":}}
+     <div id="res">C</div>
+
+     {{elif ans.cans1=="|D|":}}
+     <div id="res">D</div>
+        {{pass}}
+    
+    {{if ans.cans2=="|A|":}}
+     <div id="res">A</div>
+   
+     {{elif ans.cans2=="|B|":}}
+     <div id="res">B</div>
+
+     {{elif ans.cans2=="|C|":}}
+     <div id="res">C</div>
+
+     {{elif ans.cans2=="|D|":}}
+     <div id="res">D</div>
+        {{pass}}
+    
+    {{if ans.cans3=="|A|":}}
+     <div id="res">A</div>
+   
+     {{elif ans.cans3=="|B|":}}
+     <div id="res">B</div>
+
+     {{elif ans.cans3=="|C|":}}
+     <div id="res">C</div>
+
+     {{elif ans.cans3=="|D|":}}
+     <div id="res">D</div>
+        {{pass}}
+    
+    {{if ans.cans4=="|A|":}}
+     <div id="res">A</div>
+   
+     {{elif ans.cans4=="|B|":}}
+     <div id="res">B</div>
+
+     {{elif ans.cans4=="|C|":}}
+     <div id="res">C</div>
+
+     {{elif ans.cans4=="|D|":}}
+     <div id="res">D</div>
+        {{pass}}
+    
+    {{if ans.cans5=="|A|":}}
+     <div id="res">A</div>
+   
+     {{elif ans.cans5=="|B|":}}
+     <div id="res">B</div>
+
+     {{elif ans.cans5=="|C|":}}
+     <div id="res">C</div>
+
+     {{elif ans.cans5=="|D|":}}
+     <div id="res">D</div>
+        {{pass}}
+</div>
+<div id="feed">
+    <div id="feedfo">
+    {{=form}}
+    </div>
+    <div class="round-button"><div class="round-button-circle"><a href="{{=URL('index')}}" class="round-button">Home</a></div></div>
+</div>
+</div>

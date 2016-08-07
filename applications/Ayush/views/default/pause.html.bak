@@ -1,0 +1,89 @@
+<style>
+body{
+    background-color: #f5f5f5;
+}
+    h1{
+        text-align: center;
+        margin-top: 5%;
+        font-family: qdi;
+    }
+    #hea{
+        width:20%;
+        height: 10%;
+        margin-left: 40%;
+        background-color:rgb(255, 204, 102) ;
+        margin-top: 5%;
+        border-radius: 8%;
+        padding-top: 1.2%;
+    }
+
+    #main{
+        width: 80%;
+        height: 60%;
+        margin-top: 4%;
+    }
+    #r{
+        width: 60%;
+        height: 12%;
+        font-size: 120%;
+        text-align: left;
+        background-color: rgb(255, 204, 102);
+        margin-left: 35%;
+        font-family: qdop;
+        padding-top: 0.3%;
+        margin-top: 1%;
+        border-radius: 8%;
+      
+    }
+    button{
+        margin-left: 50%;
+    }
+    
+    @font-face{
+        font-family: qdi;
+       
+        src:url("{{=URL('static','css/Fontin-Bold.otf')}}")
+    }     
+            @font-face{
+        font-family: qdop;
+      
+        src:url("{{=URL('static','css/Fontin-Regular.otf')}}")
+    }
+    
+</style>
+
+<body>
+<h1>
+    Quiz Paused
+    </h1>
+<div id="main">
+    
+<div id="r">
+    <ul>
+        <li>You have paused your quiz.</li>
+    </ul>
+</div>
+    <div id="r">
+    <ul>
+        <li>You will now be directed to your homepage.</li>
+    </ul>
+</div>
+    
+    <div id="r">
+    <ul>
+        <li>Your responses and your score till now has been saved.</li>
+    </ul>
+</div>
+    <div id="r">
+    <ul>
+        <li>You can resume the quiz any time.</li>
+    </ul>
+</div>
+    <div id="r">
+    <ul>
+        <li>Your quiz would start from the state where you left the quiz.</li>
+    </ul>
+</div>
+</div>
+<a href="{{=URL('index')}}"> <button type="button" >GO TO HOME</button></a>
+</body>

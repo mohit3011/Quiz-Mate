@@ -1,0 +1,46 @@
+{{extend 'layout.html'}}
+<style>
+    body{
+        margin-top:0px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 2%;
+    }
+</style>
+
+<h1>
+    QUIES RATINGS
+</h1>
+
+<div class="table-responsive">
+<table class="table table-hover">
+  <tr>
+    <th class="warning">S.No</th>
+        <th class="warning">Category</th>		
+    <th class="warning">Sub-Category</th>
+    <th class="warning">Set</th>
+    <th class="warning">Level</th>
+      <th class="warning">Rating</th>
+  </tr>
+    {{list=['-1']}}
+    {{i=1}}
+    {{for line in lines:}}
+    {{if line.quizid not in list:}}
+    {{list.append(line.quizid)}}
+  <tr>
+    <td>{{=i}}</td>
+    <td>{{=line.quizid.Category}}</td>	
+    <td>{{=line.quizid.Sub_Category}}</td>
+      <td>{{=line.quizid.Qset}}</td>
+      <td>{{=line.quizid.Qlevel}}</td>
+      <td>{{=line.Rate_Quiz}}</td>
+  </tr>
+    {{i += 1}}
+    {{if(i > 10):}}
+    {{break}}
+    {{pass}}
+    {{pass}}
+    {{pass}}
+</table>
+</div>

@@ -1,0 +1,39 @@
+{{extend 'layout.html'}}
+<style>
+    body{
+        margin-top:0px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 2%;
+    }
+</style>
+
+<h1>
+    TOP SCORERS ON QUIZ MATE
+</h1>
+
+<div class="table-responsive">
+<table class="table table-hover">
+  <tr>
+    <th class="warning">RANK</th>
+        <th class="warning">NAME</th>		
+    <th class="warning">TOTAL SCORE</th>
+    <th class="warning">IMAGE</th>
+      
+  </tr>
+    {{i=1}}
+    {{for line in list:}}
+  <tr>
+    <td>{{=i}}</td>
+    <td>{{=line.created_by.first_name}}</td>		
+    <td>{{=line.score}}</td>
+    <td><img src="{{=URL('default', 'download', args=line.created_by.Image)}}" height="50" width="50" /></td>
+  </tr>
+    {{i += 1}}
+    {{if(i > 10):}}
+    {{break}}
+    {{pass}}
+    {{pass}}
+</table>
+</div>
